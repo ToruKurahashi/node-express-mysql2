@@ -14,3 +14,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server && \
 RUN mkdir -p /var/run/mysqld && \
     chown -R mysql:mysql /var/run/mysqld && \
     chmod 755 /var/run/mysqld
+    
+RUN service mysql start && \
+    mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
