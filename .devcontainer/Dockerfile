@@ -5,8 +5,8 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     ca-certificates
 
-RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
-    && apt-get install -y nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
+    apt-get install -y nodejs
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server && \
     rm -rf /var/lib/apt/lists/*
